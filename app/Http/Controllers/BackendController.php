@@ -12,10 +12,14 @@ class BackendController extends Controller
 {
 
     public function landing(){
-        $lan = Landmark::find(1);
-
-        $landmarkData = data::simplePaginate(20);
-        $landmarkContent = content::simplePaginate(20);
-        return view("backend.landing", compact ("lan", "landmarkData", "landmarkContent"));
+        $landmark = Landmark::simplePaginate(20);
+        return view("backend.landing", compact ("landmark"));
     }
+
+    public function details($id){
+        $lan = Landmark::find($id);
+        
+        return view("backend.detail", compact("lan")) ;
+    }
+
 }

@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get("backend",[BackendController::class, "landing"])->name("landing");
+Route::get("backend/details/{id}",[BackendController::class, "details"])->name("backend.details");
