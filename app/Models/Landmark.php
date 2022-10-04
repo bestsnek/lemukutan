@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Content;
 use App\Models\Data;
+use App\Models\LogTourGuide;
+
 
 class Landmark extends Model
 {
@@ -18,6 +20,9 @@ class Landmark extends Model
     }
     public function data(){
         return $this->hasOne(Data::class);
+    }
+    public function logtourguide(){
+        return $this->hasMany(Data::class);
     }
 
 }
