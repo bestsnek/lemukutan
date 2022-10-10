@@ -9,7 +9,7 @@
             <div class="text-center">
                 <h4> Daftar destinasi dan QR </h1>
             </div>
-            
+            <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->errorCorrection('H')->size(300)->generate('Make me into an QrCode!')) !!} ">
                 <table class="table table-hover">
                     <thead>
                         <tr>
