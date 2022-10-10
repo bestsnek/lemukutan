@@ -6,10 +6,10 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Data</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Log</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Akun</a></li>
+          <li><a href="{{ route('backend.landing') }}" class="nav-link px-2 {{ Route::is('backend.landing*') ? 'text-secondary' : 'text-white' }}">Home</a></li>
+          <li><a href="" class="nav-link px-2 text-white">Data</a></li>
+          <li><a href="{{ route('backend.log_tour_guide') }}" class="nav-link px-2  {{ Route::is('backend.log_tour_guide*') ? 'text-secondary' : 'text-white' }}">Log</a></li>
+          <li><a href= "" class="nav-link px-2 text-white">Akun</a></li>
         </ul>
 
         <div class="text-end">
