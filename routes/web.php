@@ -20,5 +20,6 @@ Route::get('/', function () {
 
 Route::get("backend",[BackendController::class, "landing"])->name("backend.landing");
 Route::get("backend/details/{id}",[BackendController::class, "details"])->name("backend.details");
+Route::get("backend/lihat_qrcode/{qrcode}",[BackendController::class, "lihat_qrcode"])->name("backend.lihat_qrcode");
 Route::get("backend/log_tour_guide",[BackendController::class, "log_tour_guide"])->name("backend.log_tour_guide");
 Route::get("backend/hapus_log{id}",[BackendController::class, "hapus_log"])->name("backend.hapus_log");

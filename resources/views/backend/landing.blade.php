@@ -9,7 +9,7 @@
             <div class="text-center">
                 <h4> Daftar destinasi dan QR </h1>
             </div>
-            <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->errorCorrection('H')->size(300)->generate('Make me into an QrCode!')) !!} ">
+            
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -26,7 +26,8 @@
                         <tr>
                             <td>{{$lan->id}}</td>
                             <td>{{$lan->nama}}</td>
-                            <td>{{$lan->qrCode}}</td>
+                            {{$qrcode = $lan->qrCode}}
+                            <td><a href="{{route('backend.lihat_qrcode', $qrcode ) }}" class="btn btn-sm btn-info" >Klik untuk lihat QRCode</a></td>
                             <td>{{ $lan->isHarbor === 1 ? "Dermaga" : "Bukan Dermaga" }}</th>
                             <td><a href="{{route('backend.details', ['id'=> $lan->id]) }}" class="btn btn-sm btn-info">Detail</a></td>
                             
