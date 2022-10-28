@@ -11,6 +11,7 @@
             </div>
             
                 <table class="table table-hover">
+                    tambah landmark
                     <thead>
                         <tr>
                             <th>id</th>
@@ -26,8 +27,7 @@
                         <tr>
                             <td>{{$lan->id}}</td>
                             <td>{{$lan->nama}}</td>
-                            {{$qrcode = $lan->qrCode}}
-                            <td><a href="{{route('backend.lihat_qrcode', $qrcode ) }}" class="btn btn-sm btn-info" >Klik untuk lihat QRCode</a></td>
+                            <td><a href="{{route('backend.lihat_qrcode', ['qrcode' => $lan->qrCode] ) }}" class="btn btn-sm btn-info" >Klik untuk lihat QRCode</a></td>
                             <td>{{ $lan->isHarbor === 1 ? "Dermaga" : "Bukan Dermaga" }}</th>
                             <td><a href="{{route('backend.details', ['id'=> $lan->id]) }}" class="btn btn-sm btn-info">Detail</a></td>
                             

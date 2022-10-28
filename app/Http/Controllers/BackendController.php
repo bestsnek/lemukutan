@@ -22,6 +22,12 @@ class BackendController extends Controller
         
         return view("backend.detail", compact("lan")) ;
     }
+   
+    public function form_buat_landmark(){
+        $lan = Landmark::all();
+        
+        return view("backend.form_buat_landmark", compact("lan")) ;
+    }
 
     public function lihat_qrcode($qrcode){
        $qrcodes = $qrcode;
