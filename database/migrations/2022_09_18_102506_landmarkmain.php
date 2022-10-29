@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("nama",50);
             $table->string("qrCode",50);
             $table->boolean("isHarbor");
+            $table->boolean("active");
             $table->timestamps();
         });
     }

@@ -49,6 +49,8 @@ class BackendController extends Controller
         $qrid = $curid + 1; //qr-id = current id +1, biar ngga kegabung
         $qr = $qrid . Str::random(10); // qrid+random string 
         $landmark->qrCode = $qr; //apply qr
+
+        $landmark->active = 1;
         
         $landmark->save();
         $ld_id= $landmark->id; //get the landmark id
@@ -114,8 +116,37 @@ class BackendController extends Controller
         return view("backend.form_buat_landmark") ;
     }
 
+    public function form_ubah_landmark($id){
+        $lan = Landmark::find($id);
+        return view("backend.form_ubah_landmark", compact("lan")) ;
+    }
 
+    public function ubah_landmark(Request $request){
+        $id = $request->id;
+        $landmark = Landmark::find($id);
 
+        $landmark->nama = $request->nama;
+        
+        //isHarbor convertion, 1 = harbor, 0 = not
+        $ishb = $request->isHarbor;
+        if ($ishb == "1"){
+            $landmark->isHarbor = 1;
+        } else{
+            $landmark->isHarbor = 0;
+        };
+
+        $landmark->save();
+
+        $content = Content::find($id);
+        $content->content1 = $request->content1;
+        $content->content2 = $request->content2;
+        $content->content3 = $request->content3;
+        $content->content4 = $request->content4;
+        $content->save();
+
+        $request->session()->flash('landmarkEdited', 'Edit Landmark Berhasil');
+        return redirect()->route('backend.details', ['id'=> $id] ) ;
+    }
 
     public function lihat_qrcode($qrcode){
         $qrcodes = $qrcode;

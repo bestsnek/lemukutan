@@ -12,12 +12,14 @@
             
                 <table class="table table-hover">
                     <a href="{{ route('backend.form_buat_landmark') }}" class="btn btn-sm btn-primary float-right">Tambah Landmark</a>
+                    
                     <thead>
                         <tr>
                             <th>id</th>
                             <th>Nama Landmark</th>
                             <th>QR</th>
                             <th>Tipe Tempat</th>
+                            <th>aktif</th>
                             <th>Aksi</th>
                             
                         </tr>
@@ -29,6 +31,7 @@
                             <td>{{$lan->nama}}</td>
                             <td><a href="{{route('backend.lihat_qrcode', ['qrcode' => $lan->qrCode] ) }}" class="btn btn-sm btn-info" >Klik untuk lihat QRCode</a></td>
                             <td>{{ $lan->isHarbor === 1 ? "Dermaga" : "Bukan Dermaga" }}</th>
+                            <td>{{ $lan->active === 1 ? "aktif" : "tidak aktif" }}</th>
                             <td><a href="{{route('backend.details', ['id'=> $lan->id]) }}" class="btn btn-sm btn-info">Detail</a></td>
                             
                         </tr>
