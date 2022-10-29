@@ -79,7 +79,7 @@
                             "kosong"
                             @else
                             
-                                <img src="{{$lan->content->photo2}}" alt="" style="max-width: 50% " > 
+                                <img src="{{$lan->content->photo2}}" alt=" " style="max-width: 50% " > 
                             
                             @endif
                             <input type="file" class="form-control" name="photo2" >
