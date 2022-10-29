@@ -11,7 +11,7 @@
             </div>
             
                 <table class="table table-hover">
-                    tambah landmark
+                    <a href="{{ route('backend.form_buat_landmark') }}" class="btn btn-sm btn-primary float-right">Tambah Landmark</a>
                     <thead>
                         <tr>
                             <th>id</th>

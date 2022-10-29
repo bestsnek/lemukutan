@@ -194,6 +194,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class
 
     ],
 
@@ -213,5 +214,6 @@ return [
     ])->toArray(),
 
     'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+    'Image' => Intervention\Image\Facades\Image::class
 
 ];
