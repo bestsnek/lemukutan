@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BackendController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,12 @@ Route::get("backend/lihat_qrcode/{qrcode}",[BackendController::class, "lihat_qrc
 
 Route::get("backend/log_tour_guide",[BackendController::class, "log_tour_guide"])->name("backend.log_tour_guide");
 Route::get("backend/hapus_log{id}",[BackendController::class, "hapus_log"])->name("backend.hapus_log");
+
+
+//users
+
+Route::get("backend/admin/registrasi",[AdminController::class, "admin_register_form"])->name("backend.admin_register_form")->middleware("guest");
+Route::post("backend/admin/registrasi",[AdminController::class, "admin_register"])->name("backend.admin_register");
+
+Route::get("backend/admin/login",[AdminController::class, "admin_login_form"])->name("backend.admin_login_form")->middleware("guest");
+Route::post("backend/admin/login",[AdminController::class, "admin_login"])->name("backend.admin_login");

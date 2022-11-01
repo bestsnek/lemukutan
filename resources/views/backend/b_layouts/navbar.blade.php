@@ -13,8 +13,36 @@
         </ul>
 
         <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">Login</button>
-          <button type="button" class="btn btn-warning">Sign-up</button>
+          {{-- <button type="button" class="btn btn-outline-light me-2">Login</button>
+          <button type="button" class="btn btn-warning">Sign-up</button> --}}
+
+          @auth
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Welcome Back, {{auth()->user()->name}}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {{-- <li><a class="dropdown-item" href="{{route('backend.userDashboard')}}">My Dashboard</a></li> --}}
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <form action="{{route('backend.admin_logout')}}" method="POST">
+                @csrf
+                <button type='submit' class='dropdown-item'>
+                logout
+                </button>  
+              </form>  
+              
+            
+            </li>
+          </ul>
+        </li>  
+
+      @else
+      
+        <li class="nav-item"><a href="{{route('backend.admin_login_form')}}" class="nav-link {{ Route::is('backend.admin_login_form') ? 'active' : '' }}">login</a></li>
+      @endauth
+
+
         </div>
       </div>
     </div>
