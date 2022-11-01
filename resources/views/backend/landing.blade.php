@@ -19,7 +19,7 @@
                             <th>Nama Landmark</th>
                             <th>QR</th>
                             <th>Tipe Tempat</th>
-                            <th>aktif</th>
+                            <th>Status</th>
                             <th>Aksi</th>
                             
                         </tr>
@@ -31,7 +31,11 @@
                             <td>{{$lan->nama}}</td>
                             <td><a href="{{route('backend.lihat_qrcode', ['qrcode' => $lan->qrCode] ) }}" class="btn btn-sm btn-info" >Klik untuk lihat QRCode</a></td>
                             <td>{{ $lan->isHarbor === 1 ? "Dermaga" : "Bukan Dermaga" }}</th>
-                            <td>{{ $lan->active === 1 ? "aktif" : "tidak aktif" }}</th>
+                            <td>
+                                <p style={{ $lan->active === 1 ? "color:green" : "color:red"  }} >{{ $lan->active === 1 ? "aktif" : "tidak aktif" }} 
+                                <a href="{{route('backend.ubah_status',['id'=>$lan->id])}}" class="btn btn-sm {{ $lan->active === 1 ? "btn-success" : "btn-danger"  }} btn-success" onclick="return confirm('Apakah anda yakin ingin mengganti status landmark?');"> Ganti </a>
+                                </p>
+                            </th>
                             <td><a href="{{route('backend.details', ['id'=> $lan->id]) }}" class="btn btn-sm btn-info">Detail</a></td>
                             
                         </tr>

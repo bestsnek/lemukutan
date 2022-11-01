@@ -26,6 +26,8 @@ Route::get('backend/form_ubah_landmark/{id}', [BackendController::class, 'form_u
 Route::post('backend/ubah_landmark/', [BackendController::class, 'ubah_landmark'])->name('backend.ubah_landmark');
 
 Route::get("backend/details/{id}",[BackendController::class, "details"])->name("backend.details");
+Route::get("backend/ubah_status/{id}",[BackendController::class, "ubah_status"])->name("backend.ubah_status");
+
 Route::get("backend/lihat_qrcode/{qrcode}",[BackendController::class, "lihat_qrcode"])->name("backend.lihat_qrcode");
 
 

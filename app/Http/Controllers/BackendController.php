@@ -30,6 +30,13 @@ class BackendController extends Controller
         return view("backend.form_buat_landmark", compact("lan")) ;
     }
 
+    public function ubah_status($id){
+        $lan = Landmark::find($id);
+        $lan->active =  !$lan->active;
+        $lan->save();
+        return back();
+    }
+    
     public function buat_landmark(Request $request){
 
         // landmark main //
@@ -142,6 +149,29 @@ class BackendController extends Controller
         $content->content2 = $request->content2;
         $content->content3 = $request->content3;
         $content->content4 = $request->content4;
+
+        //logic of if ada, ganti, if not, then stay
+        if ($request->photo1 !="" ){
+            $file = $request->file("photo1");
+            $nama1 = $request->nama;
+            $file_name= $nama1 . "_1_".time().'.webp';
+            
+            $img=\Image::make($file)->encode('webp'); //convert to webp
+            $img->save(public_path('gambar/landmark/').($file_name)); //save
+            $content->photo1 = "/gambar/landmark/".$file_name; //masukkan ke db 
+        }
+        
+        if ($request->photo2 !="" ){
+            $file = $request->file("photo2");
+            $nama1 = $request->nama;
+            $file_name= $nama1 . "_2_".time().'.webp';
+            
+            $img=\Image::make($file)->encode('webp'); //convert to webp
+            $img->save(public_path('gambar/landmark/').($file_name)); //save
+            $content->photo2 = "/gambar/landmark/".$file_name; //masukkan ke db 
+        }
+
+
         $content->save();
 
         $request->session()->flash('landmarkEdited', 'Edit Landmark Berhasil');
