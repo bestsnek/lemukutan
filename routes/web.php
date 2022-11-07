@@ -33,14 +33,25 @@ Route::get("backend/lihat_qrcode/{qrcode}",[BackendController::class, "lihat_qrc
 
 
 
+
 Route::get("backend/log_tour_guide",[BackendController::class, "log_tour_guide"])->name("backend.log_tour_guide");
 Route::get("backend/hapus_log{id}",[BackendController::class, "hapus_log"])->name("backend.hapus_log");
 
 
 //users
 
+Route::get("backend/admin/dashboard",[AdminController::class, "admin_dashboard"])->name("backend.admin_dashboard");
+
+Route::get('backend/user/admin_ganti_status/{id}', [AdminController::class, 'admin_ganti_status'])->name('backend.admin_ganti_status');
+Route::get('backend/user/admin_hapus_user/{id}', [AdminController::class, 'admin_hapus_user'])->name('backend.admin_hapus_user');
+Route::get('backend/user/admin_reset_password/{id}', [AdminController::class, 'admin_reset_password'])->name('backend.admin_reset_password');
+
+
 Route::get("backend/admin/registrasi",[AdminController::class, "admin_register_form"])->name("backend.admin_register_form")->middleware("guest");
 Route::post("backend/admin/registrasi",[AdminController::class, "admin_register"])->name("backend.admin_register");
 
 Route::get("backend/admin/login",[AdminController::class, "admin_login_form"])->name("backend.admin_login_form")->middleware("guest");
-Route::post("backend/admin/login",[AdminController::class, "admin_login"])->name("backend.admin_login");
+Route::post("backend/admin/login",[AdminController::class, "authenticate"])->name("backend.admin_login");
+
+Route::post("backend/admin/logout",[AdminController::class, "admin_logout"])->name("backend.admin_logout");
+Route::post('backend/admin/admin_ganti_password/{id}', [AdminController::class, 'admin_ganti_password'])->name('backend.admin_ganti_password');
