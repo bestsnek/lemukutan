@@ -72,7 +72,7 @@
 
     <div class="card shadow my-4">
         <div class="card-header">
-            User
+            (khusus superadmin) daftar user
         </div>
         <div class="card-body">
             <table class="table table-hover">
