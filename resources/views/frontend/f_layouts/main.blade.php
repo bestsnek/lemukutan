@@ -30,11 +30,18 @@
     <main>
         <style>
             body{
+             
                 background-color:#BAD5F0; 
+                background-image:url({{url('background.webp')}});
+                 
+                background-size:     cover;                  
+                background-repeat:   no-repeat;
+                background-position: center center; 
+                   
             }
 
             body.div{
-                background-color:#6A94DC ; 
+                background-color:#faba55 ; 
             }
         </style>
         

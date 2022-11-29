@@ -2,11 +2,17 @@
 
 @section('content')
 
-<div class="container-fluid py-3">
-    <div class="card py-3">
-        <h1> lemukutan informasi </h1>
+
+{{-- opener anjay --}}
+@for ($i = 0; $i < 20; $i++)
+<div class="container-fluid py-3" style="visibility: hidden">
+    <div class="card py-5">
+        {{$i}}
     </div>
 </div>
+@endfor
+
+
 
 
 

@@ -48,12 +48,18 @@ Route::group(['middleware' => ['is_admin', 'auth']], function () {
     //users
 
     Route::get("backend/admin/dashboard",[AdminController::class, "admin_dashboard"])->name("backend.admin_dashboard");
-    Route::get('backend/user/admin_ganti_status/{id}', [AdminController::class, 'admin_ganti_status'])->name('backend.admin_ganti_status');
-    Route::get('backend/user/admin_hapus_user/{id}', [AdminController::class, 'admin_hapus_user'])->name('backend.admin_hapus_user');
-    Route::get('backend/user/admin_reset_password/{id}', [AdminController::class, 'admin_reset_password'])->name('backend.admin_reset_password');
-
+    
     Route::post("backend/admin/logout",[AdminController::class, "admin_logout"])->name("backend.admin_logout");
     Route::post('backend/admin/admin_ganti_password/{id}', [AdminController::class, 'admin_ganti_password'])->name('backend.admin_ganti_password');
+    
+    
+    Route::group(['middleware' => ['is_superadmin', 'auth']], function () {
+        Route::get('backend/user/admin_ganti_status/{id}', [AdminController::class, 'admin_ganti_status'])->name('backend.admin_ganti_status');
+        Route::get('backend/user/admin_reset_password/{id}', [AdminController::class, 'admin_reset_password'])->name('backend.admin_reset_password');
+        Route::get('backend/user/admin_hapus_user/{id}', [AdminController::class, 'admin_hapus_user'])->name('backend.admin_hapus_user');
+        
+    });
+
 });
 
 //utk non-admin
