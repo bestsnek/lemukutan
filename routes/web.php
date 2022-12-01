@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\AdminController;
 
@@ -15,11 +16,16 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.landing');
-});
+// Route::get('/', function () {
+//     return view('frontend.landing');
+// });
+
+Route::get("/",[FrontendController::class, "landing"])->name("frontend.landing");
+Route::get("/qrcode",[FrontendController::class, "qr_reader"])->name("frontend.qr_reader");
+
 
 //belum login bisa akses
+
 Route::get("backend/admin/registrasi",[AdminController::class, "admin_register_form"])->name("backend.admin_register_form");
 Route::post("backend/admin/registrasi",[AdminController::class, "admin_register"])->name("backend.admin_register");
 

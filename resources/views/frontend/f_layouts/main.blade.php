@@ -32,11 +32,13 @@
             body{
              
                 background-color:#BAD5F0; 
-                background-image:url({{url('background.webp')}});
+                background-image:url({{url('asset/background.webp')}});
                  
-                background-size:     cover;                  
+                                 
                 background-repeat:   no-repeat;
                 background-position: center center; 
+              
+                
                    
             }
 

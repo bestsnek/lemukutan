@@ -200,6 +200,8 @@ class BackendController extends Controller
         return redirect()->route('backend.log_tour_guide');
 
     }
+    
+    
 
 
 }
