@@ -21,7 +21,7 @@ use App\Http\Controllers\AdminController;
 // });
 
 Route::get("/",[FrontendController::class, "landing"])->name("frontend.landing");
-Route::get("/qrcode",[FrontendController::class, "qr_reader"])->name("frontend.qr_reader");
+Route::get("/qr-reader",[FrontendController::class, "qr_reader"])->name("frontend.qr_reader");
 
 
 //belum login bisa akses

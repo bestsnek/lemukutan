@@ -40,6 +40,9 @@
             <p style="text-align: center ">
                 klik tombol dibawah untuk men-scan QR Code melalui website LemukutanKu
             </p>
+            <div class="row mx-3">
+                <a href="{{route('frontend.qr_reader') }} "  class="btn btn-sm btn-info" style="text-align: center">Pembaca QR</a>\
+            </div>
         </div>
     </div>
 
