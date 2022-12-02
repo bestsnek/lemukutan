@@ -15,7 +15,7 @@
     <script src="{{asset('/js/html5-qrcode.min.js')}}"></script>
 
     
-    <title>Lemukutan Informasi</title>
+    <title>LemukutanKu</title>
     @include("frontend.f_layouts.navbar")
     
     

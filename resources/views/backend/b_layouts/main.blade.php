@@ -14,7 +14,7 @@
 
     
 
-    <title>Lemukutan Informasi</title>
+    <title>Lemukutanku Backend</title>
     @include("backend.b_layouts.navbar")
     
     
