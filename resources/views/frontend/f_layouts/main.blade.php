@@ -12,7 +12,7 @@
 
     {{-- scanner --}}
     {{-- <script type="text/javascript" src="/js/jsqrscanner.nocache.js"></script> --}}
-    <script src="{{asset('/js/jsqrscanner.nocache.js')}}"></script>
+    <script src="{{asset('/js/html5-qrcode.min.js')}}"></script>
 
     
     <title>Lemukutan Informasi</title>
