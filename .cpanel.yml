@@ -1,0 +1,11 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/u1571973/public_html/
+    - /bin/cp index.php $DEPLOYPATH
+    - /bin/cp .htaccess $DEPLOYPATH
+    - /bin/cp .favicon.ico $DEPLOYPATH
+    - /bin/cp -R gambar $DEPLOYPATH
+    - /bin/cp -R asset $DEPLOYPATH
+    - /bin/cp -R js $DEPLOYPATH
+    
