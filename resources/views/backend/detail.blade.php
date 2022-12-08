@@ -30,7 +30,7 @@
                         <li class="list-group-item">ID : {{$lan->id}} </li>
                         <li class="list-group-item">Nama : {{$lan->nama}}</li>
                         <li class="list-group-item">QR Code : {{$lan->qrCode}}</li>
-                        <li class="list-group-item">Jenis Landmark : {{ $lan->isHarbor === 1 ? "Dermaga" : "Bukan Dermaga" }}</li>
+                        <li class="list-group-item">Jenis Landmark : {{ $lan->isHarbor == 1 ? "Dermaga" : "Bukan Dermaga" }}</li>
                         <li class="list-group-item">Content 1 : {{$lan->content->content1}}</li>
                         <li class="list-group-item">Content 2 : {{$lan->content->content2}}</li>
                         <li class="list-group-item">Content 3 : {{$lan->content->content3}}</li>
