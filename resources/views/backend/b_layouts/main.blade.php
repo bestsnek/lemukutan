@@ -14,7 +14,7 @@
 
     
 
-    <title>Lemukutanku Backend</title>
+    <title>Explore Lemukutan Backend</title>
     @include("backend.b_layouts.navbar")
     
     

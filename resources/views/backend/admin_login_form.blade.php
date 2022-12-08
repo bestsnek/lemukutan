@@ -23,7 +23,7 @@
                 <main class="form-signin">
                     <form action='{{route('backend.admin_login')}}' method="POST">
                         @csrf
-                        <h1 class="h3 mb-3 fw-normal text-center">Login Lemukutan Informasi</h1>
+                        <h1 class="h3 mb-3 fw-normal text-center">Login Backend Explore Lemukutan</h1>
                         <div class="form-floating">
                             <input type="email" name='email' class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" autofocus required value="{{old ('email')}}">
                             <label for="floatingInput">Email address</label>

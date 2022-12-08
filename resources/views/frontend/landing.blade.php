@@ -19,10 +19,13 @@
     object-fit: cover;
     /* min-width: 50%;
     min-height: 30%; */
-    max-width: 60%;
-    max-height: 50%;
+    max-width: 70%;
+    max-height: 40%;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
 }
 
 </style>
@@ -31,14 +34,14 @@
     <div class="py-3 px-2" style="background-color: #BAD5F0; border-radius: 25px; box-shadow: -10px 10px 5px;  ">
         <div class="col">
             <h2 style="text-align: center">
-                Selamat Datang di LemukutanKu
+                Selamat Datang di Explore Lemukutan
             </h2>
     
             <h5 style="text-align: center">
                 Mulai petualanganmu dengan men-scan QR Code yang ada di Pulau Lemukutan 
             </h2>
             <p style="text-align: center ">
-                klik tombol dibawah untuk men-scan QR Code melalui website LemukutanKu
+                klik tombol dibawah untuk men-scan QR Code melalui website Explore Lemukutan
             </p>
             <div class="row mx-3">
                 <a href="{{route('frontend.qr_reader') }} "  class="btn btn-sm btn-info" style="text-align: center">Pembaca QR</a>
@@ -53,9 +56,9 @@
             
             <div id="carousel" class="carousel carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner ">
-                  <div class="carousel-item  ">
+                  {{-- <div class="carousel-item  ">
                     <img src="{{url('asset/intro.jpg')}}" class="d-block w-100 edge " alt="...">
-                  </div>
+                  </div> --}}
                   <div class="carousel-item">
                     <img src="{{url('asset/intro2.jpg')}}" class="d-block w-100 edge" alt="...">
                   </div>

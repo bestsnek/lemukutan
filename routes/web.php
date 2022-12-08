@@ -21,7 +21,17 @@ use App\Http\Controllers\AdminController;
 // });
 
 Route::get("/",[FrontendController::class, "landing"])->name("frontend.landing");
+Route::get("maaf",[FrontendController::class, "maaf"])->name("frontend.maaf");
 Route::get("/qr-reader",[FrontendController::class, "qr_reader"])->name("frontend.qr_reader");
+Route::get("/qr/{qr}",[FrontendController::class, "qr"])->name("frontend.qr"); //yang baca landmark dan nge-redirect ke masing masing landmark
+
+
+Route::get("/daftar_objek_wisata",[FrontendController::class, "daftar_objek_wisata"])->name("frontend.daftar_objek_wisata");
+Route::get("/landmark/{id}",[FrontendController::class, "landmark"])->name("frontend.landmark"); //isi landmark
+
+
+Route::get("/form_tourguide/{qr}",[FrontendController::class, "form_tourguide"])->name("frontend.form_tourguide"); //form tourguide
+Route::post("/tourguide",[FrontendController::class, "tourguide"])->name("frontend.tourguide"); //utk log  tourguide
 
 
 //belum login bisa akses
@@ -38,7 +48,7 @@ Route::group(['middleware' => ['is_admin', 'auth']], function () {
     Route::get("backend",[BackendController::class, "landing"])->name("backend.landing");
     Route::get("backend/form_buat_landmark",[BackendController::class, "form_buat_landmark"])->name("backend.form_buat_landmark");
     Route::post('backend/buat_landmark/', [BackendController::class, 'buat_landmark'])->name('backend.buat_landmark');
-
+ 
     Route::get('backend/form_ubah_landmark/{id}', [BackendController::class, 'form_ubah_landmark'])->name('backend.form_ubah_landmark');
     Route::post('backend/ubah_landmark/', [BackendController::class, 'ubah_landmark'])->name('backend.ubah_landmark');
 
@@ -48,7 +58,7 @@ Route::group(['middleware' => ['is_admin', 'auth']], function () {
     Route::get("backend/lihat_qrcode/{qrcode}",[BackendController::class, "lihat_qrcode"])->name("backend.lihat_qrcode");
 
     Route::get("backend/log_tour_guide",[BackendController::class, "log_tour_guide"])->name("backend.log_tour_guide");
-    Route::get("backend/hapus_log{id}",[BackendController::class, "hapus_log"])->name("backend.hapus_log");
+    Route::get("backend/hapus_log/{id}",[BackendController::class, "hapus_log"])->name("backend.hapus_log");
 
 
     //users
