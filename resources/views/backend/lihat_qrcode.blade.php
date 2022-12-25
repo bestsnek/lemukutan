@@ -6,7 +6,7 @@
     {{$nama}}
 </div>
 <div class="container my-3">
-    <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->errorCorrection('H')->size(500)->generate("https://www.bestsnek.com/qr/"."$qrcodes")) !!} ">
+    <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->errorCorrection('H')->size(500)->generate("https://www.explorelemukutan.com/qr/"."$qrcodes")) !!} ">
 </div>
 
 <a href="{{ url()->previous() }}" class="btn btn-primary btn-sm">Kembali</a>
