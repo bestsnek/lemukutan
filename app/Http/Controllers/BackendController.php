@@ -128,6 +128,7 @@ class BackendController extends Controller
         return view("backend.form_ubah_landmark", compact("lan")) ;
     }
 
+
     public function ubah_landmark(Request $request){
         $id = $request->id;
         $landmark = Landmark::find($id);
@@ -144,7 +145,7 @@ class BackendController extends Controller
 
         $landmark->save();
 
-        $content = Content::find($id);
+        $content = content::find($id);
         $content->content1 = $request->content1;
         $content->content2 = $request->content2;
         $content->content3 = $request->content3;
