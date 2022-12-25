@@ -29,21 +29,29 @@
         
     </div>
     <div class="card py-3">
+        
         <div class="card border-secondary mx-3" >
             {{$landmark->content->content1}}    
         </div>
 
+        @if($landmark->content->content2 != "kosong")
         <div class="card border-secondary mx-3" >
             {{$landmark->content->content2}}    
         </div>
+        @endif
 
+        @if($landmark->content->content3 != "kosong")
         <div class="card border-secondary mx-3" >
             {{$landmark->content->content3}}    
         </div>
+        @endif
 
+        @if($landmark->content->content4 != "kosong")
         <div class="card border-secondary mx-3" >
             {{$landmark->content->content4}}    
         </div>
+        @endif
+
 
     </div>
 </div>

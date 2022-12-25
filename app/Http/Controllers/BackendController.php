@@ -147,9 +147,25 @@ class BackendController extends Controller
 
         $content = content::find($id);
         $content->content1 = $request->content1;
-        $content->content2 = $request->content2;
-        $content->content3 = $request->content3;
-        $content->content4 = $request->content4;
+
+        if ($request->content2 !="" ){
+            $content->content2 = $request->content2;
+        }else{
+            $content->content2 = "kosong";
+        }
+
+        if ($request->content3 !="" ){
+            $content->content3 = $request->content3;
+        }else{
+            $content->content3 = "kosong";
+        }
+
+        if ($request->content4 !="" ){
+            $content->content4 = $request->content4;
+        }else{
+            $content->content4 = "kosong";
+        }
+
 
         //logic of if ada, ganti, if not, then stay
         if ($request->photo1 !="" ){
