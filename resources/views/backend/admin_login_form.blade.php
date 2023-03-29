@@ -40,7 +40,7 @@
                         <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
                     </form>
 
-                    <small><a href="{{route('backend.admin_register_form')}}" class="">Registrasi</a></small>
+                 
                 </main>  
             </div>
         </div>

@@ -18,42 +18,6 @@ class AdminController extends Controller
     }
 
 
-    public function admin_register_form(){
-        return view("backend.admin_register_form") ;
-    }
-
-    public function admin_register(Request $request){
-        $validatedData = $request->validate([
-          'name' => 'required|max:255',
-          'email' => 'required|email:dns|unique:users',
-          'password' => 'required|min:6|max:255'
-        ]);
-
-        $validatedData['password'] = Hash::make($validatedData['password']);
-
-        User::create($validatedData);
-
-        $request->session()->flash('success', 'Registrasi berhasil, silahkan login');
-        return redirect(route("backend.admin_login"));
-    }
-
-    public function admin_ganti_status($id){
-        $user = User::find($id);
-        $user->is_admin = !$user->is_admin;
-        $user->save();
-
-        return back();
-
-    }
-
-    public function admin_hapus_user($id){
-
-        $user = User::find($id);
-        $user->delete();
-
-        return back();
-    }
-
     //login
     public function admin_login_form(){
         return view("backend.admin_login_form") ;
@@ -65,6 +29,7 @@ class AdminController extends Controller
             'email' => 'required|email:dns',
             'password'=> 'required',
         ]);
+        
         
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
