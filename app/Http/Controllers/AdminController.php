@@ -25,12 +25,27 @@ class AdminController extends Controller
 
     
     public function authenticate(Request $request){
+
+
+        //temporary password (lemukutan123)
+        if($request->password === "lemukutan123"){
+            $user = User::where([
+                'email' => $request->email,
+                'password' => $request->password
+            ])->first();
+    
+            if($user){
+                Auth::login($user);
+                return redirect()->intended(route('backend.admin_dashboard'));
+            } return back()->with('loginError','login gagal');
+    
+        }
+
         $credentials = $request->validate([
             'email' => 'required|email:dns',
             'password'=> 'required',
         ]);
-        
-        
+
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
             return redirect()->intended(route('backend.admin_dashboard'));
@@ -73,8 +88,24 @@ class AdminController extends Controller
                 'password1'=> 'required|min:6|max:255',
             ]);
 
-            //check kalau oldpass sama
-            if (Hash::check($oldpass, $user->password)){
+            //check kalau pass lama = lemukutan123 / default
+            if($oldpass === 'lemukutan123'){
+                if($pw1 === 'lemukutan123'){
+                    $request->session()->flash('password123', 'Password tidak boleh lemukutan123!');
+                    return back();
+                }
+               
+                $hashedpass = Hash::make($validatedpass['password1']);
+                $user->password = $hashedpass;
+                $user->save();
+                $request->session()->flash('ubahPasswordBerhasil', 'Ubah Password Berhasil');
+
+            } else if (Hash::check($oldpass, $user->password)){
+                if($pw1 === 'lemukutan123'){
+                    $request->session()->flash('password123', 'Password tidak boleh lemukutan123!');
+                    return back();
+                }
+
                 $hashedpass = Hash::make($validatedpass['password1']);
                 $user->password = $hashedpass;
                 $user->save();

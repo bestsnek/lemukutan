@@ -13,6 +13,13 @@
     {{session('passwordsalah')}}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>  
+
+@endif
+@if(session()->has('password123'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{session('password123')}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>  
 @endif
 
 @if(session()->has('passwordtidaksama'))
