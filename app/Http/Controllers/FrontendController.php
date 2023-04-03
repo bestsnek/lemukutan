@@ -57,20 +57,23 @@ class FrontendController extends Controller
     }
 
 
-
+    //redirect ke halaman tujuan dan tambah pengunjung IF ada session.
     public function qr($qr){
-        
-        
         $landmark = Landmark::where('qrCode', $qr)->first();
 
-        
 
         if($landmark->isHarbor){
             return redirect()->route("frontend.form_tourguide",['qr'=>$landmark->qrCode]);
         } else{
-            //tambah 1 di pengunjung
+            
+
+            //TO DO tambah logic buat pengunjung real (not islander)
+
+            //
+
+
             $old = $landmark->data->jumlahPengunjung;
-            $new = ($old+1);
+            $new = ($old+1); //tambah 1 di pengunjung
             
             $landmark->data->jumlahPengunjung = $new ;
             $landmark->data->save();
@@ -78,12 +81,15 @@ class FrontendController extends Controller
                 return redirect()->route('frontend.landmark',['id'=>$landmark->id] ); //arahkan ke jalan yang benar
             }
             else{
-                return view("frontend.rusak"); //salah kode atau asal
+                return view("frontend.rusak"); //salah kode atau asal qr
             }
         }
+    }
 
+    public function tambah_session(Request $request){
 
-        
+        $request->session()->put('newcomer', "1");
+        return view("frontend.landing");
     }
 
 

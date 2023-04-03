@@ -24,6 +24,7 @@ Route::get("/",[FrontendController::class, "landing"])->name("frontend.landing")
 Route::get("maaf",[FrontendController::class, "maaf"])->name("frontend.maaf");
 Route::get("/qr-reader",[FrontendController::class, "qr_reader"])->name("frontend.qr_reader");
 Route::get("/qr/{qr}",[FrontendController::class, "qr"])->name("frontend.qr"); //yang baca landmark dan nge-redirect ke masing masing landmark
+Route::get("/newcomer",[FrontendController::class, "newcomer"])->name("frontend.newcomer"); //Untuk pendatang baru biar dapat session
 
 
 Route::get("/daftar_objek_wisata",[FrontendController::class, "daftar_objek_wisata"])->name("frontend.daftar_objek_wisata");
