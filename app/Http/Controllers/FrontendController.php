@@ -69,18 +69,20 @@ class FrontendController extends Controller
 
             //TO DO tambah logic buat pengunjung real (not islander)
             if($request->session()->get('newcomer') === "1" ){
-                dd("berhasil".$request->session()->get('newcomer'));
+
+                //tambah 1 di jumlah pengunjung
+            $add = $landmark->data->jumlahPengunjung;
+            $add++; 
+            
+            $landmark->data->jumlahPengunjung = $add ;
+            $landmark->data->save();
 
             }
 
             //
 
 
-            $old = $landmark->data->jumlahPengunjung;
-            $new = ($old+1); //tambah 1 di pengunjung
             
-            $landmark->data->jumlahPengunjung = $new ;
-            $landmark->data->save();
             if($landmark->active){
                 return redirect()->route('frontend.landmark',['id'=>$landmark->id] ); //arahkan ke jalan yang benar
             }
