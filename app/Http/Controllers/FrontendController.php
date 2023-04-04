@@ -75,7 +75,7 @@ class FrontendController extends Controller
             $add++; 
             
             $landmark->data->jumlahPengunjung = $add ;
-            $landmark->data->save();
+            $landmark->data->save(); //add
 
             }
 
