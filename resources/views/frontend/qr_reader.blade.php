@@ -34,16 +34,17 @@
 
 <script>
   function onScanSuccess(decodedText, decodedResult) {
-      
-    html5QrCode.stop()
-    window.location.href = decodedText;
-  
-     
+      // Handle on success condition with the decoded text or result.
+      window.location.href = decodedText;
+
+    Html5QrcodeScanner.clear(); //stop scanning after scanned
+    
+    
     // console.log(`Scan result: ${decodedText}`, decodedResult);
 }
 
 var html5QrcodeScanner = new Html5QrcodeScanner(
-	"reader", { fps: 10, qrbox: 250 });
+	"reader", { fps: 1, qrbox: 250 });
 html5QrcodeScanner.render(onScanSuccess);
 
 </script>
