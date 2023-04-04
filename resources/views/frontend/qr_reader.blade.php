@@ -35,10 +35,16 @@
 <script>
   function onScanSuccess(decodedText, decodedResult) {
       
-      // Handle on success condition with the decoded text or result.
-      window.location.href = decodedText;
+    html5QrCode.stop().then((ignore) => {
+    // QR Code scanning is stopped.
+    // Handle on success condition with the decoded text or result.
+    window.location.href = decodedText;
+    }).catch((err) => {
+    // Stop failed, handle it.
+    });
+
       
-      Html5QrcodeScanner.clear(); //stop scanning after scanned
+     
     // console.log(`Scan result: ${decodedText}`, decodedResult);
 }
 
