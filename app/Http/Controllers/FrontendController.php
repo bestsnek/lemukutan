@@ -58,7 +58,7 @@ class FrontendController extends Controller
 
 
     //redirect ke halaman tujuan dan tambah pengunjung IF ada session.
-    public function qr($qr){
+    public function qr($qr, Request $request){
         $landmark = Landmark::where('qrCode', $qr)->first();
 
 
@@ -68,6 +68,10 @@ class FrontendController extends Controller
             
 
             //TO DO tambah logic buat pengunjung real (not islander)
+            if($request->session()->get('newcomer') === "1" ){
+                dd("berhasil".$request->session()->get('newcomer'));
+
+            }
 
             //
 
@@ -86,12 +90,17 @@ class FrontendController extends Controller
         }
     }
 
-    public function tambah_session(Request $request){
+    public function newcomer(Request $request){
 
         $request->session()->put('newcomer', "1");
-        return view("frontend.landing");
+        return redirect()->route("frontend.landing");
     }
 
+    public function clear(Request $request){
+
+        $request->session()->flush();
+        return back();
+    }
 
 
 }

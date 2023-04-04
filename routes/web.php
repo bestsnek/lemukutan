@@ -16,6 +16,10 @@ use App\Http\Controllers\AdminController;
 |
 */
 
+// DEBUG
+Route::get("/clear",[FrontendController::class, "clear"])->name("frontend.clear");
+//-------
+
 // Route::get('/', function () {
 //     return view('frontend.landing');
 // });
