@@ -71,12 +71,11 @@ class FrontendController extends Controller
             if($request->session()->get('newcomer') === "1" ){
 
                 //tambah 1 di jumlah pengunjung
-            $add = $landmark->data->jumlahPengunjung;
-            $add++; 
-            
-            $landmark->data->jumlahPengunjung = $add ;
-            $landmark->data->save(); //add
-
+                $add = $landmark->data->jumlahPengunjung;
+                $add++; 
+                
+                $landmark->data->jumlahPengunjung = $add ;
+                $landmark->data->save(); //add
             }
 
             //
@@ -93,7 +92,6 @@ class FrontendController extends Controller
     }
 
     public function newcomer(Request $request){
-
         $request->session()->put('newcomer', "1");
         return redirect()->route("frontend.landing");
     }

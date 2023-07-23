@@ -61,7 +61,8 @@ Route::group(['middleware' => ['is_admin', 'auth']], function () {
     Route::get("backend/ubah_status/{id}",[BackendController::class, "ubah_status"])->name("backend.ubah_status");
 
     Route::get("backend/lihat_qrcode/{qrcode}",[BackendController::class, "lihat_qrcode"])->name("backend.lihat_qrcode");
-
+    Route::get("backend/lihat_qrcode_utama",[BackendController::class, "lihat_qrcode_utama"])->name("backend.lihat_qrcode_utama");
+    
     Route::get("backend/log_tour_guide",[BackendController::class, "log_tour_guide"])->name("backend.log_tour_guide");
     Route::get("backend/hapus_log/{id}",[BackendController::class, "hapus_log"])->name("backend.hapus_log");
 

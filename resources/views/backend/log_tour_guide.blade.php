@@ -13,12 +13,13 @@
     @endif
     
     {{-- alert end --}}
-    <div class="row">
+    <div class="row ">
         <div class="col-lg">
             <div class="text-center">
                 <h4> Log Tour Guide</h1>
             </div>
             
+            <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -46,7 +47,7 @@
                         
                     </tbody>
                 </table> 
-              
+            </div>
            
         </div>
     </div>

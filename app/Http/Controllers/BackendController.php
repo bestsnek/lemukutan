@@ -203,6 +203,10 @@ class BackendController extends Controller
         return view("backend.lihat_qrcode", compact("qrcodes", "nama")) ;
     }
 
+    public function lihat_qrcode_utama(){    
+        return view("backend.lihat_qrcode_utama") ;
+    }
+
     public function log_tour_guide(){
         $ltg = LogTourGuide::simplePaginate(20);
         return view("backend.log_tour_guide", compact ("ltg"));
