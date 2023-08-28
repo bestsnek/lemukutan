@@ -33,18 +33,43 @@
 </div>
 
 <script>
-  function onScanSuccess(decodedText, decodedResult) {
-      // Handle on success condition with the decoded text or result.
-        window.location.href = decodedText;
-        Html5QrcodeScanner.clear(); //stop scanning after scanned
-    
-    
-    // console.log(`Scan result: ${decodedText}`, decodedResult);
-}
 
-var html5QrcodeScanner = new Html5QrcodeScanner(
-	"reader", { fps: 1, qrbox: 250 });
-html5QrcodeScanner.render(onScanSuccess);
+//   function onScanSuccess(decodedText, decodedResult) {
+//       // Handle on success condition with the decoded text or result.
+//         window.location.href = decodedText;
+//         Html5QrcodeScanner.clear(); //stop scanning after scanned
+    
+    
+//     // console.log(`Scan result: ${decodedText}`, decodedResult);
+// }
+
+// var html5QrcodeScanner = new Html5QrcodeScanner(
+// 	"reader", { fps: 1, qrbox: 250 });
+// html5QrcodeScanner.render(onScanSuccess);
+
+    let html5QrcodeScanner = new Html5QrcodeScanner(
+        "reader", { fps: 10, qrbox: 250 }, /* verbose= */ true);
+
+    function onScanSuccess(qrMessage) {
+    // handle the scanned code as you like
+    //console.log(`QR matched = ${qrMessage}`);
+    window.location.href = qrMessage;
+
+    // Stop scanning
+    html5QrcodeScanner.clear().then(_ => {
+        // the UI should be cleared here      
+    }).catch(error => {
+        // Could not stop scanning for reasons specified in `error`.
+        // This conditions should ideally not happen.
+    });
+    }
+
+    function onScanFailure(error) {
+    // handle scan failure, usually better to ignore and keep scanning
+    console.warn(`QR error = ${error}`);
+    }
+
+    html5QrcodeScanner.render(onScanSuccess, onScanFailure);
 
 </script>
 
