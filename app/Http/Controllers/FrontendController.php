@@ -96,6 +96,7 @@ class FrontendController extends Controller
         return redirect()->route("frontend.landing");
     }
 
+    //debug
     public function clear(Request $request){
 
         $request->session()->flush();
