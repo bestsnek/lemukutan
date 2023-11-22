@@ -41,8 +41,8 @@ Route::post("/tourguide",[FrontendController::class, "tourguide"])->name("fronte
 
 //belum login bisa akses
 
-Route::get("backend/admin/registrasi",[AdminController::class, "admin_register_form"])->name("backend.admin_register_form");
-Route::post("backend/admin/registrasi",[AdminController::class, "admin_register"])->name("backend.admin_register");
+// Route::get("backend/admin/registrasi",[AdminController::class, "admin_register_form"])->name("backend.admin_register_form");
+// Route::post("backend/admin/registrasi",[AdminController::class, "admin_register"])->name("backend.admin_register");
 
 Route::get("backend/admin/login",[AdminController::class, "admin_login_form"])->name("backend.admin_login_form")->middleware("guest");
 Route::post("backend/admin/login",[AdminController::class, "authenticate"])->name("backend.admin_login");
