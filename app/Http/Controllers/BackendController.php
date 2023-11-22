@@ -25,9 +25,7 @@ class BackendController extends Controller
     }
    
     public function form_buat_landmark(){
-        $lan = Landmark::all();
-        
-        return view("backend.form_buat_landmark", compact("lan")) ;
+        return view("backend.form_buat_landmark") ;
     }
 
     public function ubah_status($id){
