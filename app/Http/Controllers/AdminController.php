@@ -11,10 +11,7 @@ class AdminController extends Controller
 {
     //register
     public function admin_dashboard(){
-
-        // $log = Log::latest('created_at')->simplePaginate(30); "log",
-        $user = User::all();
-        return view('backend.admin_dashboard', compact("user"));
+        return view('backend.admin_dashboard');
     }
 
 
