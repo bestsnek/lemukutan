@@ -60,15 +60,15 @@ class AdminController extends Controller
         
     }
 
-    public function admin_reset_password(Request $request, $id){
-        $user = User::find($id);
-        $defaultpass = "lemukutan123";
-        $user->password = Hash::make($defaultpass);
-        $user->save();
-        $request->session()->flash('resetberhasil', 'Password berhasil di reset');
+    // public function admin_reset_password(Request $request, $id){
+    //     $user = User::find($id);
+    //     $defaultpass = "lemukutan123";
+    //     $user->password = Hash::make($defaultpass);
+    //     $user->save();
+    //     $request->session()->flash('resetberhasil', 'Password berhasil di reset');
 
-        return back();
-    }
+    //     return back();
+    // }
     
 
     public function admin_ganti_password(Request $request, $id){

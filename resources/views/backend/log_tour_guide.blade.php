@@ -46,6 +46,7 @@
                         @endforeach
                         
                     </tbody>
+                    {{$ltg->links()}}
                 </table> 
             </div>
            

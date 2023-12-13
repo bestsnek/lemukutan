@@ -15,7 +15,7 @@
             <a href="{{ route('backend.form_buat_landmark') }}" class="btn btn-sm btn-primary float-right my-3">Tambah Landmark</a>
             <div class="table-responsive">
                 <table class="table table-hover ">
-                    
+                    {{$landmark->links()}}
                     <thead>
                         <tr>
                             <th>id</th>
@@ -42,9 +42,11 @@
                             <td><a href="{{route('backend.details', ['id'=> $lan->id]) }}" class="btn btn-sm btn-info">Detail</a></td>
                             
                         </tr>
+                        
                         @endforeach
                         
                     </tbody>
+                    
                 </table> 
             </div>
         </div>

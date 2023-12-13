@@ -14,7 +14,7 @@ class BackendController extends Controller
 {
 
     public function landing(){
-        $landmark = Landmark::simplePaginate(20);
+        $landmark = Landmark::simplePaginate(10);
         return view("backend.landing", compact ("landmark"));
     }
 
