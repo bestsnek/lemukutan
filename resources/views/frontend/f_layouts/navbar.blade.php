@@ -19,8 +19,8 @@
 
         <a href="{{route('frontend.landing')}}">
         <img
-          src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-          height="20"
+          src="https://media.discordapp.net/attachments/730377687155343403/1197289655188598854/explore_lemukutan_circle_noart.png?ex=65bab9e2&is=65a844e2&hm=bc27ab704f585aeb627cc75c5876cdd443603bae319b12c028a7f08afe5583fe&=&format=webp&quality=lossless"
+          height="50"
           alt="Logo Explore Lemukutan"
           loading="lazy"
 

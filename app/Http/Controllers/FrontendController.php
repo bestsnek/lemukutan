@@ -21,7 +21,7 @@ class FrontendController extends Controller
     }
 
     public function daftar_objek_wisata(){
-        $landmark = Landmark::all();
+        $landmark = Landmark::where('active', 1)->get();
         return view("frontend.daftar_objek_wisata", compact('landmark'));
     }
 
